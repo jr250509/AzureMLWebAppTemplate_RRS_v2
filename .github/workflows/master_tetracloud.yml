@@ -10,7 +10,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
     - uses: actions/checkout@master
@@ -18,7 +18,7 @@ jobs:
     - name: Set up .NET Core
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: '2.1.804'
+        dotnet-version: '3.1.102'
 
     - name: Build with dotnet
       run: dotnet build --configuration Release
@@ -31,5 +31,5 @@ jobs:
       with:
         app-name: 'tetracloud'
         slot-name: 'production'
-        publish-profile: ${{ secrets.AzureAppService_PublishProfile_c422153ca1974a9eb272d1109f8cc7a8 }}
+        publish-profile: ${{ secrets.AzureAppService_PublishProfile_e260c6c482484dde93598c94e039eba3 }}
         package: ${{env.DOTNET_ROOT}}/myapp 
